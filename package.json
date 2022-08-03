@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jbradley84/pour-me-another#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
     "express-session": "^1.17.3"
   }
