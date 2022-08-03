@@ -1,3 +1,4 @@
+const router = require('express').Router();
 //Require USER model
 
 const { User } = require("../../models")
@@ -52,7 +53,7 @@ router.post('/login', (req, res) => {
 
 //allows the user to logout **NOT DONE
 router.post('/logout', (req, res) => {
-    if (req.sessioin.loggedIn) {
+    if (req.session.loggedIn) {
         //clears the session when they log out
         req.session.destroy(() => {
             res.status(204).end();
@@ -62,3 +63,5 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 })
+
+module.exports = router;

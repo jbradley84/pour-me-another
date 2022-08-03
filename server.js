@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
-const port = process.env.port || 3001
+const PORT = process.env.port || 3001
 const sequelize = require('./config/connection')
+const path = require('path')
 //Adds the libraries needed to store sessions
 //Sets up express.js session and connects it to sequelize database
 const session = require('express-session');
@@ -18,3 +19,14 @@ const sess = {
         db: sequelize
     })
 };
+
+app.use(session(sess));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('./controllers'));
+
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}!`);
+  sequelize.sync({ force: false });
+});
