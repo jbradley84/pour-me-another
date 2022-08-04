@@ -1,13 +1,57 @@
 const router = require('express').Router();
-//Require USER model
+const { User, Beverage, Rating } = require("../../models")
 
-const { User } = require("../../models")
 
+// GET all users
+router.get('/', (req, res) => {
+   User.findAll({
+      attributes: { exclude: ['password'] }
+   })
+   .then(userData => res.json(userData))
+   .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+   });
+});
+
+// GET a single user by ID
+router.get('/:id', (req, res) => {
+   User.findOne({
+      attributes: { exclude: ['password'] },
+      where: {
+         id: req.params.id.id
+      },
+      include: [
+         {
+            model: Beverage,
+            attributes: ['id', 'beverage_name', 'beverage_type']
+         },
+         {
+            model: Beverage,
+            attributes: ['beverage_name'],
+            through: Rating,
+            as: 'rated_beverages'
+         }
+      ]
+   })
+   .then(userData => {
+      if (!userData) {
+         res.status(400).json({ message: 'No user found with this id!' });
+         return;
+      }
+      res.json(userData);
+   })
+   .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+   });
+});
 
 //allows user to signup
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     })
     .then(userData => {
@@ -36,14 +80,14 @@ router.post('/login', (req, res) => {
         } 
         const validPassword = user.checkPassword(req.body.password)
         if (!validPassword) {
-            res.status(400).json({ message: 'password does not match' })
+            res.status(400).json({ message: 'Password does not match' })
             return;
         }
         req.session.save (() => {
             req.session.userId = userData.id;
             req.session.userName = userData.username;
             req.session.loggedIn = true;
-            res.json({ message: 'you are now logged in! '})
+            res.json({ message: 'You are now logged in! '})
         })
     })
     .catch(err => {
