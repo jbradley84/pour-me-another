@@ -1,35 +1,30 @@
-// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import our database connection from config.js
 const sequelize = require('../config/connection');
-
-// Initialize breverages model (table) by extending off Sequelize's Model class
-class Beverage extends Model {   
-   static rateMe(body, models) {
-  return models.Rating.create({
+// create our Post model
+class Beverage extends Model {
+  static like(body, models) {
+    return models.Vote.create({
       user_id: body.user_id,
-      beverage_id: body.beverage_id
-  })
-  .then(() => {
+      post_id: body.beverage_id
+    }).then(() => {
       return Beverage.findOne({
-          where: {
-              id: body.beverage_id
-          },
-          attributes: [
-              'id',
-              'beverage_name',
-              'beverage_type',
-              [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
-              [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
-          ]
+        where: {
+          id: body.beverage_id
+        },
+        attributes: [
+          'id',
+          'beverage_name',
+          'beverage_type',
+          [sequelize.literal('(SELECT COUNT(*) FROM like WHERE beverage.id = like.beverage_id)'), 'like_count']
+        ]
       });
-  });
-}}
+    });
+  }
+}
 
-// set up fields and rules for breverages model
+// create fields/columns for Post model
 Beverage.init(
   {
-    // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,31 +35,23 @@ Beverage.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    beverage_type: {
+   beverage_type: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      //allowNull: false,
       references: {
         model: 'user',
         key: 'id'
       }
-     },
-   //  rating_id: {
-   //    type: DataTypes.DECIMAL,
-   //  references: {
-   //    model: 'rating',
-   //    key: 'id'
-   //  }}
+    }
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'beverage',
+    modelName: 'post'
   }
 );
 
