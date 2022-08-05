@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
            'id',
            'beverage_name',
            'beverage_type',
-           //[sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
+           [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
            //[sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
        ],
       //  include: [
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
            'beverage_name',
            'beverage_type',
            [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
-           [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+           //[sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
        ]
    })
        .then(dbBeverageData => {
