@@ -17,7 +17,7 @@ Rating.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'user',
         key: 'id'
       }
     },
@@ -25,7 +25,7 @@ Rating.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Beverage',
+        model: 'beverage',
         key: 'id'
       }
     }
@@ -35,7 +35,7 @@ Rating.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Rating',
+    modelName: 'rating',
   }
 );
 

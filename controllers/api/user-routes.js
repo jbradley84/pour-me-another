@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
    User.findOne({
       attributes: { exclude: ['password'] },
       where: {
-         id: req.params.id.id
+         id: req.params.id
       },
       include: [
          {
@@ -78,7 +78,7 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'No user account found!' })
             return;
         } 
-        const validPassword = user.checkPassword(req.body.password)
+        const validPassword = userData.checkPassword(req.body.password)
         if (!validPassword) {
             res.status(400).json({ message: 'Password does not match' })
             return;
