@@ -40,27 +40,31 @@ Beverage.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    user_id: {
+    beverage_type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      //allowNull: false,
       references: {
-        model: 'User',
+        model: 'user',
         key: 'id'
       }
-    },
-    rating_id: {
-      type: DataTypes.DECIMAL,
-    references: {
-      model: 'Rating',
-      key: 'id'
-    }}
+     },
+   //  rating_id: {
+   //    type: DataTypes.DECIMAL,
+   //  references: {
+   //    model: 'rating',
+   //    key: 'id'
+   //  }}
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Beverage',
+    modelName: 'beverage',
   }
 );
 

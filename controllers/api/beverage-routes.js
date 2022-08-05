@@ -1,5 +1,7 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Beverage, Rating } = require('../../models');
+
 
 // GET all beverages
 router.get('/', (req, res) => {
@@ -8,13 +10,19 @@ router.get('/', (req, res) => {
            'id',
            'beverage_name',
            'beverage_type',
-           [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
-           [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+           //[sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
+           //[sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
        ],
-       // order all beverages by average rating, highest to lowest
-       order: [
-           [sequelize.literal('rating_avg'), 'DESC']
-       ]
+      //  include: [
+      //    {
+      //       model: User,
+      //       attributes: ['username']
+      //    }
+      //  ],
+        //order all beverages by average rating, highest to lowest
+        //order: [
+            //[sequelize.literal('rating_avg'), 'DESC']
+        //]
    })
        .then(dbBeverageData => res.json(dbBeverageData))
        .catch(err => {
