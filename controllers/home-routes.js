@@ -1,24 +1,76 @@
- const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Beverage, User, Rating } = require('../models');
+const router = require('express').Router();
+
+// renders homepage
+router.get('/', (req, res) => {
+   Beverage.findAll({
+      attributes: [
+         'id',
+         'beverage_name',
+         'beverage_type',
+         [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
+         [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+      ]
+   })
+   .then(dbBeverageData => {
+      const beverages = dbBeverageData.map(beverage => beverage.get({ plain: true }));
+      res.render('homepage', { beverages });
+   })
+   .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+   });
+});
+
+// renders individual beverage page
+router.get('/beverage/:id', (req, res) => {
+   Beverage.findOne({
+      where: {
+         id: req.params.id
+      },
+      attributes: [
+         'id',
+         'beverage_name',
+         'beverage_type',
+         [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
+         [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+      ]
+   })
+   .then(dbBeverageData => {
+      if (!dbBeverageData) {
+         res.status(404).json({ message: 'No beverage found with this id!' });
+         return;
+      }
+      const beverage = dbBeverageData.get({ plain: true });
+
+      res.render('single-beverage', { beverage });
+   })
+   .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+   });
+});
 
 //renders login page
 router.get('/login', (req, res) => {
    if (req.session.loggedIn) {
-       res.redirect('/');
-       return;
+      res.redirect('/');
+      return;
    }
 
    res.render('login');
-  });
+});
 
-  //renders sign page
+//renders sign page
 router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
- 
-    res.render('signup');
-   });
-  
-   
-   module.exports = router;
+   if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+   }
+
+   res.render('signup');
+});
+
+
+module.exports = router;

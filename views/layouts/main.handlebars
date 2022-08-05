@@ -1,8 +1,38 @@
-<header>
-    <h1>
-        <a href="/">Pour Me Another</a>
-    </h1>
-    <nav>
-        <a href="/login">login</a>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Pour Me Another</title>
+</head>
+
+<body>
+
+   <header>
+      <h1>
+         <a href="/">Pour Me Another</a>
+      </h1>
+      <nav>
+         <a href="/">Home</a>
+         <a href="/mybar">My Bar</a>
+         {{#if loggedIn}}
+         <a href="/homepage">Logout</a>
+         {{else}}
+         <a href="/login">Login</a>
+         {{/if}}
+      </nav>
+   </header>
+
+   <main>
+      {{{ body }}}
+   </main>
+
+   <footer>
+
+   </footer>
+
+</body>
+
+</html>
