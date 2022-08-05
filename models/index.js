@@ -1,27 +1,27 @@
 // import models
 const Beverages = require('./Beverages');
-const user = require('./User');
-const ratings = require('./Ratings');
+const User = require('./User');
+const Ratings = require('./Ratings');
 
 // user belongsTo Beverages
-user.belongsTo(Beverages, {
+User.belongsTo(Beverages, {
   foreignKey: 'User_id'
 });
 // rating belongsTo Beverages
-ratings.belongsTo(Beverages, {
-  foreignKey: 'Rating_id'
+Ratings.belongsTo(Beverages, {
+  foreignKey: 'Ratings_id'
 });
 // user belongsTo rating
-Beverages.belongsTo(ratings, {
+Beverages.belongsTo(Ratings, {
   foreignKey: 'Beverages_id'
 });
 // user belongsTo rating
-user.belongsTo(ratings, {
+User.belongsTo(Ratings, {
   foreignKey: 'User_id'
 });
 
 module.exports = {
   Beverages,
   User,
-  ratings,
+  Ratings,
 };
