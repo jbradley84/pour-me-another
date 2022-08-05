@@ -13,6 +13,10 @@ Rating.init(
       primaryKey: true,
       autoIncrement: true
     },
+    rate: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
