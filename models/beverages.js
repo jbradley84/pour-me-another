@@ -4,10 +4,30 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize breverages model (table) by extending off Sequelize's Model class
-class beverages extends Model { }
+class Beverages extends Model {   
+   static rateMe(body, models) {
+  return models.Rating.create({
+      user_id: body.user_id,
+      beverage_id: body.beverage_id
+  })
+  .then(() => {
+      return Beverage.findOne({
+          where: {
+              id: body.beverage_id
+          },
+          attributes: [
+              'id',
+              'beverage_name',
+              'beverage_type',
+              [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
+              [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+          ]
+      });
+  });
+}}
 
 // set up fields and rules for breverages model
-beverages.init(
+Beverages.init(
   {
     // define columns
     id: {
@@ -24,14 +44,14 @@ beverages.init(
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: 'user',
+        model: 'User',
         key: 'id'
       }
     },
     rating_id: {
       type: DataTypes.DECIMAL,
     references: {
-      model: 'drinkCategory',
+      model: 'Ratings',
       key: 'id'
     }}
   },
@@ -40,8 +60,8 @@ beverages.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'beverages',
+    modelName: 'Beverages',
   }
 );
 
-module.exports = beverages;
+module.exports = Beverages;

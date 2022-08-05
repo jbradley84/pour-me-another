@@ -1,13 +1,18 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
-// Initialize user model (table) by extending off Sequelize's Model class
-class user extends Model { }
+// Initialize User model (table) by extending off Sequelize's Model class
+class User extends Model { 
+  checkPassword(loginPW) {
+    return bcrypt.compareSync(loginPW, this.password);
+}
+ }
 
-// set up fields and rules for user model
-user.init(
+// set up fields and rules for User model
+User.init(
   {
     // define columns
     id: {
@@ -16,7 +21,7 @@ user.init(
       primaryKey: true,
       autoIncrement: true
     },
-    userName: {
+    user_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -28,17 +33,24 @@ user.init(
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            isEmail:true
+          len: [4]
         }
-      },
+      }
   },
   {
+    hooks: {
+        //set up beforeCreate lifecycle "hook" functionality
+        async beforeCreate(newUserData) {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
+        },
+},
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'User',
   }
 );
 
-module.exports = user;
+module.exports = User;
