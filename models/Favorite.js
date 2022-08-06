@@ -1,19 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection');
 
 class Favorite extends Model {}
-
 Favorite.init(
   {
     // define columns
     id: {
       type: DataTypes.INTEGER,
+      //allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
+    rate: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id'
@@ -21,6 +25,7 @@ Favorite.init(
     },
     beverage_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'beverage',
         key: 'id'
@@ -32,7 +37,7 @@ Favorite.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'favorite',
+    modelName: 'Favorite',
   }
 );
 

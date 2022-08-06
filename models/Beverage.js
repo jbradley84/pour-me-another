@@ -23,7 +23,6 @@ class Beverage extends Model {
     });
   }
 }
-
 // create fields/columns for Post model
 Beverage.init(
   {
@@ -41,17 +40,18 @@ Beverage.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id'
+    //   }
+    // }
   },
   {
     sequelize,
     freezeTableName: true,
+    timestamps: false,
     underscored: true,
     modelName: 'beverage'
   }
