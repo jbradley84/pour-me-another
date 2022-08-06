@@ -1,11 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
+
 // create our Post model
 class Beverage extends Model {
-  static like(body, models) {
-    return models.Vote.create({
+  static favorite(body, models) {
+    return models.Favorite.create({
       user_id: body.user_id,
-      post_id: body.beverage_id
+      beverage_id: body.beverage_id
     }).then(() => {
       return Beverage.findOne({
         where: {
@@ -15,7 +17,7 @@ class Beverage extends Model {
           'id',
           'beverage_name',
           'beverage_type',
-          [sequelize.literal('(SELECT COUNT(*) FROM like WHERE beverage.id = like.beverage_id)'), 'like_count']
+          [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
         ]
       });
     });
@@ -51,7 +53,7 @@ Beverage.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: 'beverage'
   }
 );
 
