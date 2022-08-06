@@ -5,7 +5,7 @@ class Beverage extends Model {
   static like(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      post_id: body.beverage_id
+      beverage_id: body.beverage_id
     }).then(() => {
       return Beverage.findOne({
         where: {
@@ -21,7 +21,6 @@ class Beverage extends Model {
     });
   }
 }
-
 // create fields/columns for Post model
 Beverage.init(
   {
@@ -39,19 +38,20 @@ Beverage.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id'
+    //   }
+    // }
   },
   {
     sequelize,
     freezeTableName: true,
+    timestamps: false,
     underscored: true,
-    modelName: 'post'
+    modelName: 'beverage'
   }
 );
 
