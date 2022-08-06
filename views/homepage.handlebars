@@ -3,13 +3,10 @@
    <li>
       <article class="beverage">
          <div class="beverage-name">
-            <a href="/beverage/{{beverage.id}}" target="_blank">{{beverage_name}}</a>
+            <a href="/beverage/{{id}}" target="_blank">{{beverage_name}}</a>
          </div>
          <div class="beverage-details">
-            {{beverage_type}}, avg. user rating: {{rating_avg}}
-         </div>
-         <div class="ratings-count">
-            {{rating_count}} users have rated this {{beverage_type}}!
+            {{beverage_type}}, {{favorite_count}} users love this {{beverage_type}}
          </div>
       </article>
    </li>

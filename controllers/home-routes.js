@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Beverage, User, Rating } = require('../models');
+const { Beverage, User, Favorite } = require('../models');
 const router = require('express').Router();
 
 // renders homepage
@@ -9,8 +9,7 @@ router.get('/', (req, res) => {
          'id',
          'beverage_name',
          'beverage_type',
-         [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
-         [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+         [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
       ]
    })
    .then(dbBeverageData => {
@@ -25,6 +24,7 @@ router.get('/', (req, res) => {
 
 // renders individual beverage page
 router.get('/beverage/:id', (req, res) => {
+   console.log(req.params);
    Beverage.findOne({
       where: {
          id: req.params.id
@@ -33,8 +33,7 @@ router.get('/beverage/:id', (req, res) => {
          'id',
          'beverage_name',
          'beverage_type',
-         [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE beverage.id = rating.beverage_id)'), 'rating_count'],
-         [sequelize.literal('(SELECT AVG(*) FROM rating WHERE beverage.id = rating.beverage_)id)'), 'rating_avg']
+         [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
       ]
    })
    .then(dbBeverageData => {
@@ -43,7 +42,7 @@ router.get('/beverage/:id', (req, res) => {
          return;
       }
       const beverage = dbBeverageData.get({ plain: true });
-
+      console.log(beverage);
       res.render('single-beverage', { beverage });
    })
    .catch(err => {

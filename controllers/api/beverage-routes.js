@@ -12,9 +12,9 @@ router.get('/', (req, res) => {
          'beverage_type',
          [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count'],
       ],
-      //order all beverages by like count, highest to lowest
+      //order all beverages by favorite count, highest to lowest
       //order: [
-      //[sequelize.literal('like_count'), 'DESC']
+      //[sequelize.literal('favorite_count'), 'DESC']
       //]
    })
       .then(dbBeverageData => res.json(dbBeverageData))
