@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "postcss ./src/stylec.css -o ./public/stylesheets/style.css"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "express-session": "^1.17.0",
     "handlebars": "^4.7.3",
     "mysql2": "^2.1.0",
+    "postcss-cli": "^10.0.0",
     "sequelize": "^5.21.5",
     "sequelizer": "^1.1.4"
   },
