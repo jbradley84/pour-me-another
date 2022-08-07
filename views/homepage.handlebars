@@ -1,14 +1,7 @@
 <ol class="beverage-list">
    {{#each beverages as |beverage| }}
    <li>
-      <article class="beverage">
-         <div class="beverage-name">
-            <a href="/beverage/{{id}}">{{beverage_name}}</a>
-         </div>
-         <div class="beverage-details">
-            {{beverage_type}}, {{favorite_count}} users love this {{beverage_type}}
-         </div>
-      </article>
+      {{> beverage-info beverage }}
    </li>
    {{/each}}
 </ol>
