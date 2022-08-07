@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { User, Beverage, Favorite } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 // GET all beverages
@@ -67,16 +68,14 @@ router.post('/', (req, res) => {
 });
 
 // PUT (update) single beverage's likes
-router.put('/favorite', (req, res) => {
+router.put('/favorite', withAuth, (req, res) => {
    // custom static method created in models/Beverage.js
-   if (req.session) {
-      Beverage.favorite({ ...req.body, user_id: req.session.user_id }, { Favorite, User })
-         .then(updatedFavoriteData => res.json(updatedFavoriteData))
-         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-         });
-   }
+   Beverage.favorite({ ...req.body, user_id: req.session.user_id }, { Favorite, User })
+      .then(updatedFavoriteData => res.json(updatedFavoriteData))
+      .catch(err => {
+         console.log(err);
+         res.status(500).json(err);
+      });
 });
 
 module.exports = router;
