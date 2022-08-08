@@ -1,53 +1,46 @@
 const { User } = require('../models');
 
 const UserData = [
-    {
-        id: 1,
-        username: 'tlor026',
-        email:'tlor026@gmail.com',
-        password:'asdf',
+   {
+      username: 'test2',
+      email: 'test2@email.com',
+      password: 'test2'
 
-    },
-    {
-        id: 2,
-        username: 'tlor0026',
-        email:'tlor0026@gmail.com',
-        password:'asdf',
+   },
+   {
+      username: 'test3',
+      email: 'test3@email.com',
+      password: 'test3'
 
-    },
-    {
-        id: 3,
-        username: 'tlor00026',
-        email:'tlor00026@gmail.com',
-        password:'asdf',
+   },
+   {
+      username: 'test4',
+      email: 'test4@email.com',
+      password: 'test4'
 
-    },
-    {
-        id: 4,
-        username: 'tlor000026',
-        email:'tlor000026@gmail.com',
-        password:'asdf',
+   },
+   {
+      username: 'test5',
+      email: 'test5@email.com',
+      password: 'test5'
 
-    },
-    {
-        id: 5,
-        username: 'tlor0000026',
-        email:'tlor0000026@gmail.com',
-        password:'asdf',
+   },
+   {
+      username: 'test6',
+      email: 'test6@email.com',
+      password: 'test6'
+   },
+   {
+      username: 'test7',
+      email: 'test7@email.com',
+      password: 'test7'
 
-    },
-    {
-        id: 6,
-        username: 'tlor00000026',
-        email:'tlor00000026@gmail.com',
-        password:'asdf',
+   },
+];
 
-    },
-  ];
+const seedUser = () => User.bulkCreate(UserData, {
+   individualHooks: true,
+   returning: true,
+});
 
-  const seedUser = () => User.bulkCreate(UserData,{
-    individualHooks: true,
-    returning: true,
-  });
-
-  module.exports = seedUser;
+module.exports = seedUser;

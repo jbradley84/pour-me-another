@@ -51,6 +51,16 @@ router.get('/beverage/:id', (req, res) => {
    });
 });
 
+//renders my bar
+router.get('/mybar', (req, res) => {
+   if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+   }
+
+   res.render('mybar');
+});
+
 //renders login page
 router.get('/login', (req, res) => {
    if (req.session.loggedIn) {

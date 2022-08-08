@@ -1,76 +1,50 @@
-// import models
+// import all models
 const Beverage = require('./Beverage');
 const User = require('./User');
 const Favorite = require('./Favorite');
 
-// A user can create many beverages
+// create associations
 User.hasMany(Beverage, {
-  foreignKey: 'user_id',
-  constraints:false,
+  foreignKey: 'user_id'
 });
 
-// A beverage is created by a single user
 Beverage.belongsTo(User, {
-   foreignKey: 'user_id',
-   constraints:false,
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
 });
 
-// // A user can be linked to many beverages by rating them 
-// User.belongsToMany(Beverage, {
-//    through: Rating,
-//    as: 'rated_beverages',
-//    foreignKey: 'user_id',
-//    constraints:false,
-// });
+User.belongsToMany(Beverage, {
+  through: Favorite,
+  as: 'favorite_beverage',
 
-// // A beverage can be linked any user that rates it
-// Beverage.belongsToMany(User, {
-//    through: Rating,
-//    as: 'rated_beverages',
-//    foreignKey: 'beverage_id',
-//    constraints:false,
-// });
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
 
-// A Favorite is created by a single user
+Beverage.belongsToMany(User, {
+  through: Favorite,
+  as: 'favorite_beverage',
+  foreignKey: 'beverage_id',
+  onDelete: 'SET NULL'
+});
+
 Favorite.belongsTo(User, {
-   foreignKey: 'user_id',
-   constraints:false,
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
 });
 
-// A Favorite is created for a single beverage
 Favorite.belongsTo(Beverage, {
-   foreignKey: 'beverage_id',
-   constraints:false,
+  foreignKey: 'beverage_id',
+  onDelete: 'SET NULL'
 });
 
-// A user can rate multiple beverages
 User.hasMany(Favorite, {
-   foreignKey: 'user_id',
-   constraints:false,
+  foreignKey: 'user_id'
 });
 
-// A beverage can be rated multiple times
 Beverage.hasMany(Favorite, {
-   foreignKey: 'beverage_id',
-   constraints:false,
+  foreignKey: 'beverage_id'
 });
 
 
-
-
-// rating belongsTo Beverages
-// Rating.belongsTo(Beverage, {
-//   foreignKey: 'Rating_id'
-// });
-
-// user belongsTo rating
-// Beverage.belongsTo(Rating, {
-//   foreignKey: 'Beverage_id'
-// });
-
-// user belongsTo rating
-// User.belongsTo(Rating, {
-//   foreignKey: 'User_id'
-// });
-
-module.exports = { Beverage, User, Favorite };
+module.exports = { User, Beverage, Favorite };

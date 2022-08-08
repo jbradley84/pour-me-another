@@ -1,6 +1,19 @@
-{{> beverage-info beverage }}
 <div>
-    <button type="button" class="favorite-btn">Favorite</button>
-  </div>
+   <ol class="beverage-list">
+      {{#each beverages as |beverage| }}
+      <li>
+         {{> beverage-info beverage }}
+      </li>
+      {{/each}}
+   </ol>
+</div>
 
-  <script src="/javascript/favorite.js"></script>
+<div>
+   {{> beverage-info beverage }}
+   <div>
+      <button type="button" class="favorite-btn">Favorite</button>
+   </div>
+</div>
+
+
+<script src="/javascript/favorite.js"></script>

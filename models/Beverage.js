@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-
-// create our Post model
+// create our Beverage model
 class Beverage extends Model {
   static favorite(body, models) {
     return models.Favorite.create({
@@ -14,16 +13,27 @@ class Beverage extends Model {
           id: body.beverage_id
         },
         attributes: [
-          'id',
-          'beverage_name',
-          'beverage_type',
-          [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
-        ]
+         'id',
+         'beverage_name',
+         'beverage_type',
+         [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
+        ],
+      //   include: [
+      //     {
+      //       model: models.Comment,
+      //       attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      //       include: {
+      //         model: models.User,
+      //         attributes: ['username']
+      //       }
+      //     }
+      //   ]
       });
     });
   }
 }
-// create fields/columns for Post model
+
+// create fields/columns for Beverage model
 Beverage.init(
   {
     id: {
@@ -36,22 +46,22 @@ Beverage.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-   beverage_type: {
+    beverage_type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id'
-    //   }
-    // }
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
-    freezeTableName: true,
     timestamps: false,
+    freezeTableName: true,
     underscored: true,
     modelName: 'beverage'
   }
