@@ -1,13 +1,36 @@
-<article class="beverage">
-   <div class="beverage-name">
-      {{beverage.beverage_name}}
-   </div>
-   <div class="beverage-details">
-      {{beverage.beverage_type}}, {{beverage.favorite_count}} users love this {{beverage.beverage_type}}!
-   </div>
-</article>
-<div>
-    <button type="button" class="favorite-btn">Favorite</button>
-  </div>
+<article class="relative flex flex-col justify-center overflow-hidden">
 
-  <script src="/javascript/favorite.js"></script>
+   <div class="p-10">
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+         <img class="w-full" src="/public/stylesheets/drinks.jpg" alt="colorful cocktails">
+         <div class="px-6 py-4">
+            <div class="font-bold text-2xl mb-2 text-blue">{{beverage.beverage_name}}</div>
+            <p class="text-tahiti text-base text-xl">
+               {{beverage.beverage_type}}, {{beverage.favorite_count}} users love this {{beverage.beverage_type}}!
+            </p>
+            <div>
+               <button type="button"
+                  class="favorite-btn text-red border border-red hover:bg-red hover:text-white active:bg-red font-bold uppercase px-3 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                  Favorite</button>
+            </div>
+         </div>
+
+
+</article>
+
+
+<script src="/javascript/favorite.js"></script>
+
+
+{{!-- </div>
+<div class="beverage-name">
+   {{beverage.beverage_name}}
+</div>
+<div class="beverage-details">
+   {{beverage.beverage_type}}, {{beverage.favorite_count}} users love this {{beverage.beverage_type}}!
+</div>
+<div>
+   <button type="button"
+      class="favorite-btn text-red border border-red hover:bg-red hover:text-white active:bg-bubble-gum font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+      Favorite</button>
+</div> --}}

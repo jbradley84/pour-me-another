@@ -18,4 +18,4 @@ function loginFormHandler(event) {
     }
 }
 
-document.querySelector('.INSERT NAME OF SIGNUP BUTTON').addEventListener('submit', loginFormHandler)
+document.querySelector('#login-btn').addEventListener('submit', loginFormHandler)

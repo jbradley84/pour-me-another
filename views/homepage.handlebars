@@ -1,12 +1,38 @@
-<ol class="beverage-list outline p-3">
+<ol class="beverage-list">
    {{#each beverages as |beverage| }}
    <li>
-     
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+         <div class="rounded overflow-hidden shadow-lg">
+            <!--image would go here-->
+            <div class="px-6 py-4">
+               <div class="font-bold text-xl mb-2">
+                  <a href="/beverage/{{id}}">{{beverage_name}}</a>
+               </div>
+               <p class="text-blue text-base">
+                  {{beverage_type}}, {{favorite_count}} users love this {{beverage_type}}
+               </p>
+
+            </div>
+         </div>
+      </div>
+   </li>
+   {{/each}}
+</ol>
+
+
+
+
+
+<!--SAFE TO DELETE THIS?? -->
+<ol class="beverage-list outline p-3 ">
+   {{#each beverages as |beverage| }}
+   <li>
+
       <article class="beverage">
          <div class="beverage-name text-2xl pb-1 pt-3 ml-4">
             <a href="/beverage/{{id}}">{{beverage_name}}</a>
          </div>
-   
+
          <div class="beverage-details text-l p-1">
             {{beverage_type}}, {{favorite_count}} users love this {{beverage_type}}
          </div>
