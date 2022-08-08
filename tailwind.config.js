@@ -13,7 +13,8 @@ module.exports = {
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
         'red': '#e3342f',
-        'blue': '#3182ce'
+        'blue': '#3182ce',
+        'dark-blue': '#1e3a8a'
       },
       container: {
         center: true

@@ -7,16 +7,23 @@ function signupFormHandler(event) {
 
     //posting the info from our signup form to our server
     if (username && email && password) {
-        fetch('api/users', {
-            method: 'post',
+        fetch('api/user', {
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 email,
                 password
             }),
             headers: { 'Content-Type': 'application/json' }
-        }).then((response) => { console.log(response) })
+        }).then((response) => {
+            if (response.ok) {
+                document.location.replace('/mybar')
+                console.log(response)
+            }
+        })
     }
 }
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
+
+document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

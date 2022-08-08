@@ -95,7 +95,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-//allows the user to logout **NOT DONE
+//allows the user to logout
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         //clears the session when they log out
