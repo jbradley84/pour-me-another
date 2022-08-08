@@ -508,7 +508,100 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.ml-4 {
+  margin-left: 1rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-width: 1px;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pt-8 {
+  padding-top: 2rem;
+}
+.pb-8 {
+  padding-bottom: 2rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+.font-bold {
+  font-weight: 700;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.text-bermuda {
+  --tw-text-opacity: 1;
+  color: rgb(120 220 202 / var(--tw-text-opacity));
+}
 .text-tahiti {
   --tw-text-opacity: 1;
   color: rgb(58 183 191 / var(--tw-text-opacity));
+}
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.outline {
+  outline-style: solid;
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-150 {
+  transition-duration: 150ms;
+}
+.ease-linear {
+  transition-timing-function: linear;
+}
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }

@@ -1,11 +1,13 @@
-<ol class="beverage-list">
+<ol class="beverage-list outline p-3">
    {{#each beverages as |beverage| }}
    <li>
+     
       <article class="beverage">
-         <div class="beverage-name">
+         <div class="beverage-name text-2xl pb-1 pt-3 ml-4">
             <a href="/beverage/{{id}}">{{beverage_name}}</a>
          </div>
-         <div class="beverage-details">
+   
+         <div class="beverage-details text-l p-1">
             {{beverage_type}}, {{favorite_count}} users love this {{beverage_type}}
          </div>
       </article>
