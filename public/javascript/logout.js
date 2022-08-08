@@ -12,4 +12,4 @@ async function logout() {
 }
 
 //MAKE SURE #logout MATCHES THE HTML
-document.querySelector('#logout').addEventListener('click', logout)
+document.querySelector('#logout-btn').addEventListener('click', logout)

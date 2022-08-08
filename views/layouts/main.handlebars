@@ -22,12 +22,13 @@
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/mybar">My Bar</a>
          {{#if loggedIn}}
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/homepage">Logout</a>
+         <a id="logout-btn"
+            class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            href="/login">Logout</a>
          {{else}}
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/login">Login</a>
-            <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/signup">Sign Up</a>
          {{/if}}
       </nav>
@@ -40,6 +41,7 @@
    <footer>
    </footer>
 
+   <script src="/javascript/logout.js"></script>
 </body>
 
 </html>
