@@ -3,14 +3,14 @@ const sequelize = require('../config/connection');
 const { Beverage, User, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all session favorited beverages for My Bar list
-router.get('/mybar', withAuth, (req, res) => {
+// get session user data including favorited beverages for My Bar list
+router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   User.findOne({
    attributes: { exclude: ['password'] },
-   where: {
-     id: req.params.id
-   },
+   // where: {
+   //   id: req.params.id
+   // },
    include: [
      {
        model: Beverage,
@@ -21,6 +21,7 @@ router.get('/mybar', withAuth, (req, res) => {
    ]
 })
 .then(dbUserData => {
+   console.log(dbUserData);
   const beverages = dbUserData.map(beverage => beverage.get({ plain: true }));
   console.log(beverages);
   res.render('mybar', { beverages, loggedIn: true });
@@ -32,3 +33,4 @@ router.get('/mybar', withAuth, (req, res) => {
 });
 
 module.exports = router;
+

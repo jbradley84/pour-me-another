@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
    })
    .then(dbBeverageData => {
       const beverages = dbBeverageData.map(beverage => beverage.get({ plain: true }));
-      res.render('homepage', { beverages });
+      const loggedIn = req.session.loggedIn ? req.session.loggedIn: false
+      res.render('homepage', { beverages, loggedIn });
    })
    .catch(err => {
       console.log(err);
