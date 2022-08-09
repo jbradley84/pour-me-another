@@ -3,24 +3,31 @@ const sequelize = require('../config/connection');
 const { Beverage, User, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+
 // get list of all beverages favorited by session user
+
 router.get('/', withAuth, (req, res) => {
-   Beverage.findAll({
+   const userId = req.session.user_id;
+   console.log(userId);
+   Favorite.findAll({
       where: {
-         // favorite.user_id = session user id
+         user_id: userId
       },
-      attributes: [
-         'id',
-         'beverage_name',
-         'beverage_type',
-         [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
+      include: [
+         {
+            model: Beverage,
+            attributes: ['beverage_name'],
+            through: Favorite,
+            as: 'favorite_beverage'
+         }
       ]
    })
-      .then(dbBeverageData => {
-         console.log(dbBeverageData);
-         const beverages = dbBeverageData.map(beverage => beverage.get({ plain: true }));
-         console.log(beverages);
-         res.render('mybar', { beverages, loggedIn: true });
+      .then(dbFavoriteData => {
+         console.log(dbFavoriteData);
+         const favorites = dbFavoriteData.map(favorite => favorite.get({ plain: true }));
+         console.log(favorites);
+         res.render('mybar', { favorites, loggedIn: true });
       })
       .catch(err => {
          console.log(err);
