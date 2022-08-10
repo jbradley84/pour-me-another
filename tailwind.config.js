@@ -7,14 +7,11 @@ module.exports = {
     extend: {
       colors: {
         'white': '#ffffff',
-        'midnight': '#121063',
-        'metal': '#565584',
-        'tahiti': '#3ab7bf',
-        'bubble-gum': '#ff77e9',
-        'bermuda': '#78dcca',
-        'red': '#e3342f',
-        'blue': '#3182ce',
-        'dark-blue': '#1e3a8a'
+        'tan': '#968B7d',
+        'salmon': '#aa715c',
+        'dark-grey': '#4c4f4a',
+        'blue': '#738586',
+        'light-grey': '#9d9F9b'
       },
       container: {
         center: true

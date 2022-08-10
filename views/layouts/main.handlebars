@@ -11,27 +11,24 @@
 
 <body>
 
-   <header class="h-14 py-15 bg-gradient-to-r from-blue to-tahiti text-center">
-      <a class="text-dark-blue text-6xl pt-8 pb-8 font-sans" href="/">Pour Me Another</a>
+   <header class="h-14 py-15 text-left">
+      <a class="text-salmon text-6xl pt-8 pb-8 font-sans" href="/">TAPP THAT.</a>
    </header>
 
    <div class="pt-3">
       <nav class="text-right pb-6">
-         {{#if loggedIn}}
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/">Tap List</a>
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+         <a class="text-dark-grey border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            href="/">Home</a>
+         <a class="text-dark-grey border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/mybar">My Bar</a>
          <a id="logout-btn"
-            class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            class="text-dark-grey border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/login">Logout</a>
          {{else}}
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/">Tap List</a>
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/login">My Bar</a>
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+         <a class="text-dark-grey border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/login">Login</a>
+         <a class="text-dark-grey border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            href="/signup">Sign Up</a>
          {{/if}}
       </nav>
    </div>

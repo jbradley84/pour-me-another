@@ -1,24 +1,24 @@
 <section>
-   <h2>Add a beverage to our Tap List</h2>
+   <h2 class="font-bold text-xl mb-2">Add a beverage to our Tap List</h2>
    <form class="new-beverage-form">
       <div>
-         <label for="beverage-name">Beverage Name</label>
+         <label for="beverage-name" class="font-bold text-l mb-2 text-dark-blue">Beverage Name</label>
          <input type="text" id="beverage-name" name="beverage-name" />
       </div>
       <div>
-         <label for="beverage-type">Beverage Type</label>
+         <label for="beverage-type" class="font-bold text-l mb-2 text-dark-blue">Beverage Type</label>
          <input id="beverage-type" name="beverage-type" />
       </div>
-      <button type="submit" class="btn">Pour One Up!</button>
+      <button type="submit" class="btn bg-tahiti text-white font-bold py-2 px-4 rounded-full">Pour One Up!</button>
    </form>
 </section>
 
 {{#if beverages.length}}
 <section>
-   <h2>{{username}}'s Bar</h2>
-   <ol>
+   <h2 class="font-bold text-xl mb-2 text-dark-blue">{{username}}'s Bar</h2>
+   <ol class="font-bold text-l mb-2 text-blue">
       {{#each beverages as |beverage|}}
-      <li>
+      <li class="font-bold text-md mb-2 text-blue">
          {{> beverage-info beverage}}
       </li>
       {{/each}}
