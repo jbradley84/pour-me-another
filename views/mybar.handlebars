@@ -1,0 +1,30 @@
+<section>
+   <h2>Add a beverage to our Tap List</h2>
+   <form class="new-beverage-form">
+      <div>
+         <label for="beverage-name">Beverage Name</label>
+         <input type="text" id="beverage-name" name="beverage-name" />
+      </div>
+      <div>
+         <label for="beverage-type">Beverage Type</label>
+         <input id="beverage-type" name="beverage-type" />
+      </div>
+      <button type="submit" class="btn">Pour One Up!</button>
+   </form>
+</section>
+
+{{#if beverages.length}}
+<section>
+   <h2>{{username}}'s Bar</h2>
+   <ol>
+      {{#each beverages as |beverage|}}
+      <li>
+         {{> beverage-info beverage}}
+      </li>
+      {{/each}}
+   </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-beverage.js"></script>
+<script src="/javascript/logout.js"></script>

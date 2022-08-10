@@ -1,53 +1,39 @@
-const { User } = require('../models');
+const sequelize = require('../config/connection');
+const { User, Beverage } = require('../models');
 
-const UserData = [
-    {
-        id: 1,
-        username: 'tlor026',
-        email:'tlor026@gmail.com',
-        password:'asdf',
+const userdata = [
+  {
+    username: 'test1',
+    email: 'test1@email.com',
+    password: 'test1'
+  },
+  {
+   username: 'test2',
+   email: 'test2@email.com',
+   password: 'test2'
+ },
+ {
+   username: 'test3',
+   email: 'test3@email.com',
+   password: 'test3'
+ },
+ {
+   username: 'test4',
+   email: 'test4@email.com',
+   password: 'test4'
+ },
+ {
+   username: 'test5',
+   email: 'test5@email.com',
+   password: 'test5'
+ },
+ {
+   username: 'test6',
+   email: 'test6@email.com',
+   password: 'test6'
+ }  
+];
 
-    },
-    {
-        id: 2,
-        username: 'tlor0026',
-        email:'tlor0026@gmail.com',
-        password:'asdf',
+const seedUsers = () => User.bulkCreate(userdata, {individualHooks: true});
 
-    },
-    {
-        id: 3,
-        username: 'tlor00026',
-        email:'tlor00026@gmail.com',
-        password:'asdf',
-
-    },
-    {
-        id: 4,
-        username: 'tlor000026',
-        email:'tlor000026@gmail.com',
-        password:'asdf',
-
-    },
-    {
-        id: 5,
-        username: 'tlor0000026',
-        email:'tlor0000026@gmail.com',
-        password:'asdf',
-
-    },
-    {
-        id: 6,
-        username: 'tlor00000026',
-        email:'tlor00000026@gmail.com',
-        password:'asdf',
-
-    },
-  ];
-
-  const seedUser = () => User.bulkCreate(UserData,{
-    individualHooks: true,
-    returning: true,
-  });
-
-  module.exports = seedUser;
+module.exports = seedUsers;

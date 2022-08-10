@@ -1,21 +1,24 @@
-const seedUser = require('./User-seed.js');
-const seedFavorite = require('./Favorite-seed.js');
-const seedBeverage = require('./Beverage-seed.js');
+const seedUsers = require('./user-seeds');
+const seedBeverages = require('./beverage-seeds');
+const seedReviews = require('./review-seeds');
+const seedFavorites = require('./favorite-seeds');
 
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
-  console.log('\n----- DATABASE SYNCED -----\n');
+  console.log('--------------');
+  await seedUsers();
+  console.log('--------------');
 
-  await seedBeverage();
-  console.log('\n----- Beverage SEEDED -----\n');
+  await seedBeverages();
+  console.log('--------------');
 
-  await seedUser();
-  console.log('\n----- User SEEDED -----\n');
+  await seedReviews();
+  console.log('--------------');
 
-  await seedFavorite();
-  console.log('\n----- Favorite SEEDED -----\n');
+  await seedFavorites();
+  console.log('--------------');
 
   process.exit(0);
 };
