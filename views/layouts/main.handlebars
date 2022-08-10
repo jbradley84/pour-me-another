@@ -2,47 +2,40 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="/stylesheets/style.css" rel="stylesheet">
-   <title>Pour Me Another</title>
-   <!--<link rel="stylesheet" href="./public/stylesheets/styles.css" />-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pour Me Another</title>
 </head>
 
 <body>
-
-   <header class="h-14 py-15 bg-gradient-to-r from-blue to-tahiti text-center">
-      <a class="text-dark-blue text-6xl pt-8 pb-8 font-sans" href="/">Pour Me Another</a>
-   </header>
-
-   <div class="pt-3">
-      <nav class="text-right pb-6">
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/">Home</a>
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/mybar">My Bar</a>
-         {{#if loggedIn}}
-         <a id="logout-btn"
-            class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/login">Logout</a>
-         {{else}}
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/login">Login</a>
-         <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/signup">Sign Up</a>
-         {{/if}}
+  <div>
+    <header>
+      <h1>
+        <a href="/">Pour Me Another</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/">Tap List</a>
+        <a href="/mybar">My Bar</a>
+        <button id="logout">Logout</button>
+        {{else}}
+        <a href="/">Tap List</a>
+        <a href="/login">My Bar</a>
+        <a href="/login">Login</a>
+        {{/if}}
       </nav>
-   </div>
-
-   <main>
+    </header>
+    <main>
       {{{ body }}}
-   </main>
-
-   <footer>
-   </footer>
-
-   <script src="/javascript/logout.js"></script>
+    </main>
+    <footer>
+      Drink responsibly. Post liberally.
+    </footer>
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

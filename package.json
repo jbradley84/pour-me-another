@@ -21,7 +21,6 @@
    },
    "homepage": "https://github.com/jbradley84/pour-me-another#readme",
    "dependencies": {
-      "autoprefixer": "^10.4.8",
       "bcrypt": "^4.0.1",
       "connect-session-sequelize": "^6.1.1",
       "dotenv": "^8.2.0",

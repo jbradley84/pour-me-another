@@ -1,0 +1,13 @@
+<p>User Reviews:</p>
+<div class="reviews">
+  {{#each this}}
+  <section class="review">
+    <div>
+      <p>{{user.username}}'s opinion:</p>
+    </div>
+    <div class="text">
+      {{review_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
