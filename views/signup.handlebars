@@ -1,23 +1,29 @@
-<div>
-   <form class="signup-form">
-      <div>
-         <label for="username-signup">username</label>
-         <input type="text" id="username-signup" />
-      </div>
-      <div>
-         <label for="email-signup">email:</label>
-         <input type="text" id="email-signup" />
-      </div>
-      <div>
-         <label for="password-signup">password:</label>
-         <input type="text" id="password-signup" />
-      </div>
-      <div>
-         <button type="submit">signup</button>
-      </div>
-   </form>
-   <p>Been here before? <a href="/login">Login!</a></p>
-</div>
+<div class="relative flex flex-col justify-center overflow-hidden">
+    <div
+        class="w-full p-6 m-auto bg-white rounded shadow-lg lg:max-w-md">
+        <h1 class="text-3xl font-semibold text-center text-metal">Log In to Get Pouring!</h1>
+
+<form id="login-form" class="login-page mt-3">
+    <div>
+        <label for="email-login" class="block text-lg text-tahiti">email:</label>
+        <input type="text" id="email-login" class="block w-full px-4 py-2 mt-2 text-tahiti border rounded-md"/>
+    </div>
+
+    <div>
+        <label for="password-login" class="block text-lg text-tahiti">password:</label>
+        <input type="password" id="password-login" class="block w-full px-4 py-w mt-2 text-tahiti border rounded-md" />
+    </div>
+    <div class="pt-2">
+        <button id="login-btn" type="submit" class="bg-tahiti text-white font-bold py-2 px-4 rounded-full">login</button>
+    </div>
+</form>
+
+
+
+
+
+
+
 
 {{!--{{NEEDS TO STAY AT THE BOTTOM}}--}}
-<script src="/javascript/signup.js"
+<script src="/javascript/login.js"></script>
