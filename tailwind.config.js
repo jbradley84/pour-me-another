@@ -18,7 +18,10 @@ module.exports = {
       },
       fontFamily: {
         'sans': 'Helvetica, Arial, sans-serif',
-      }
+      },
+      backgroundImage: (theme) => ({
+        bar: "url('/drinks.jpg')"
+      }),
     }
     
   },
