@@ -17,19 +17,19 @@
 
    <div class="pt-3">
       <nav class="text-right pb-6">
+         {{#if loggedIn}}
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/">Home</a>
+            href="/">Tap List</a>
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/mybar">My Bar</a>
-         {{#if loggedIn}}
          <a id="logout-btn"
             class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             href="/login">Logout</a>
          {{else}}
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/login">Login</a>
+            href="/login">My Bar</a>
          <a class="text-blue border border-blue hover:bg-blue hover:text-white active:bg-blue font-bold uppercase px-4 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            href="/signup">Sign Up</a>
+            href="/login">Login</a>
          {{/if}}
       </nav>
    </div>
@@ -39,9 +39,13 @@
    </main>
 
    <footer>
+      Drink responsibly. Post liberally.
    </footer>
 
+
+   {{#if loggedIn}}
    <script src="/javascript/logout.js"></script>
+   {{/if}}
 </body>
 
 </html>
