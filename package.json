@@ -37,6 +37,7 @@
       "autoprefixer": "^10.4.8",
       "nodemon": "^2.0.19",
       "postcss": "^8.4.16",
+      "sequelizer": "^1.1.4",
       "tailwindcss": "^3.1.8"
    }
 }
