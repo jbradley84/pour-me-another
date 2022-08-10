@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Beverage, User, Review, Favorite } = require('../models');
 
-// get all posts for homepage
+// Renders HOMEPAGE view, all beverages list
 router.get('/', (req, res) => {
    Beverage.findAll({
       attributes: [
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
       });
 });
 
-// get single beverage
+// Renders SINGLE-BEVERAGE view, individual beverage-info 
 router.get('/beverages/:id', (req, res) => {
    Beverage.findOne({
       where: {
@@ -89,6 +89,7 @@ router.get('/beverages/:id', (req, res) => {
       });
 });
 
+// Renders LOGIN page view
 router.get('/login', (req, res) => {
    if (req.session.loggedIn) {
       res.redirect('/');
@@ -98,6 +99,7 @@ router.get('/login', (req, res) => {
    res.render('login');
 });
 
+// Renders SIGNUP page view
 router.get('/signup', (req, res) => {
    if (req.session.loggedIn) {
       res.redirect('/');
