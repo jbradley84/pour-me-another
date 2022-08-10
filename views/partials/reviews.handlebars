@@ -1,26 +1,11 @@
-<div class="reviews">
-   {{#each this}}
-   <article class="p-10">
-      <div class="rounded overflow-hidden shadow-lg">
-         <div class="review px-6 py-4">
-            <div>
-               <p class="font-bold text-md mb-2">{{user.username}}'s review:</p>
-            </div>
-            <div class="text-blue text-base">
-               {{review_text}}
-            </div>
-         </div>
-      </div>
-   </article>
-   {{/each}}
-<p class="font-bold text-2xl mb-2 text-dark-blue">User Reviews:</p>
+<p>User Reviews:</p>
 <div class="reviews">
   {{#each this}}
   <section class="review">
     <div>
-      <p class="font-bold text-xl mb-2 text-dark-blue">{{user.username}}'s opinion:</p>
+      <p>{{user.username}}'s opinion:</p>
     </div>
-    <div class="text font-bold text-md mb-2 text-blue">
+    <div class="text">
       {{review_text}}
     </div>
   </section>
