@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Beverage model
+// create the Beverage model
 class Beverage extends Model {
   static favorite(body, models) {
     return models.Favorite.create({
@@ -18,16 +18,16 @@ class Beverage extends Model {
          'beverage_type',
          [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
         ],
-      //   include: [
-      //     {
-      //       model: models.Comment,
-      //       attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-      //       include: {
-      //         model: models.User,
-      //         attributes: ['username']
-      //       }
-      //     }
-      //   ]
+        include: [
+          {
+            model: models.Review,
+            attributes: ['id', 'review_text', 'beverage_id', 'user_id'],
+            include: {
+              model: models.User,
+              attributes: ['username']
+            }
+          }
+        ]
       });
     });
   }

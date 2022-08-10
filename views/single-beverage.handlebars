@@ -1,21 +1,21 @@
-<!-- List of ALL beverages -->
-<div>
-   <ol class="beverage-list">
-   {{#each beverages as |beverage| }}
-   <li>
-      {{> beverage-info beverage }}
-   </li>
-   {{/each}}
-</ol>
-</div>
+{{> beverage-info beverage}}
 
-<!-- Individual beverage as clicked on by user -->
-<div>
-   {{> beverage-info beverage }}
-   <div>
-      <button type="button" class="favorite-btn">Favorite</button>
-   </div>
-</div>
+{{#if loggedIn}}
+<form class="review-form">
+  <div>
+    <textarea name="review-body"></textarea>
+  </div>
 
+  <div>
+    <button type="submit">add review</button>
+    <button type="button" class="favorite-btn">favorite</button>
+  </div>
+</form>
+{{/if}}
 
+{{> reviews beverage.reviews}}
+
+{{#if loggedIn}}
+<script src="/javascript/review.js"></script>
 <script src="/javascript/favorite.js"></script>
+{{/if}}

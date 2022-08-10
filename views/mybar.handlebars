@@ -1,31 +1,30 @@
 <section>
-  <h2>Add a new beverage to our Tap List!</h2>
-
-  <form class="new-beverage-form">
-    <div>
-      <label for="beverage-name">What are you drinking?</label>
-      <input type="text" id="beverage-name" name="beverage-name" />
-    </div>
-    <div>
-      <label for="beverage-type">What kind of booze is it?</label>
-      <input type="text" id="beverage-type" name="beverage-type" />
-    </div>
-    <button type="submit" class="btn">Pour one up!</button>
-  </form>
+   <h2>Add a beverage to our Tap List</h2>
+   <form class="new-beverage-form">
+      <div>
+         <label for="beverage-name">Beverage Name</label>
+         <input type="text" id="beverage-name" name="beverage-name" />
+      </div>
+      <div>
+         <label for="beverage-type">Beverage Type</label>
+         <input id="beverage-type" name="beverage-type" />
+      </div>
+      <button type="submit" class="btn">Pour One Up!</button>
+   </form>
 </section>
 
-<!-- List of session specific user's FAVORITED beverages -->
 {{#if beverages.length}}
 <section>
-  <h2>Your Tap List</h2>
-  <ol>
-    {{#each beverages as |beverage|}}
-    <li>
-      {{> beverage-info beverage}}
-    </li>
-    {{/each}}
-  </ol>
+   <h2>{{username}}'s Bar</h2>
+   <ol>
+      {{#each beverages as |beverage|}}
+      <li>
+         {{> beverage-info beverage}}
+      </li>
+      {{/each}}
+   </ol>
 </section>
 {{/if}}
 
 <script src="/javascript/add-beverage.js"></script>
+<script src="/javascript/logout.js"></script>

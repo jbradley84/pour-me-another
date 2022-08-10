@@ -1,33 +1,42 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Beverage, User, Favorite } = require('../models');
+const { Beverage, User, Review, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
-
-
-// get list of all beverages favorited by session user
-
+// get all beverages for mybar
 router.get('/', withAuth, (req, res) => {
-   const userId = req.session.user_id;
-   console.log(userId);
-   Favorite.findAll({
+   console.log(req.session);
+   Beverage.findAll({
       where: {
-         user_id: userId
+         user_id: req.session.user_id
       },
+      attributes: [
+         'id',
+         'beverage_name',
+         'beverage_type',
+         [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE beverage.id = favorite.beverage_id)'), 'favorite_count']
+      ],
+      // order: [
+      //    ['favorite_count', 'DESC']
+      // ],
       include: [
          {
-            model: Beverage,
-            attributes: ['beverage_name'],
-            through: Favorite,
-            as: 'favorite_beverage'
+            model: Review,
+            attributes: ['id', 'review_text', 'beverage_id', 'user_id'],
+            include: {
+               model: User,
+               attributes: ['username']
+            }
+         },
+         {
+            model: User,
+            attributes: ['username']
          }
       ]
    })
-      .then(dbFavoriteData => {
-         console.log(dbFavoriteData);
-         const favorites = dbFavoriteData.map(favorite => favorite.get({ plain: true }));
-         console.log(favorites);
-         res.render('mybar', { favorites, loggedIn: true });
+      .then(dbBeverageData => {
+         const beverages = dbBeverageData.map(beverage => beverage.get({ plain: true }));
+         res.render('mybar', { beverages, loggedIn: true });
       })
       .catch(err => {
          console.log(err);
