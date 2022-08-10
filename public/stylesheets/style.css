@@ -568,26 +568,11 @@ video {
 }
 .border-blue {
   --tw-border-opacity: 1;
-  border-color: rgb(49 130 206 / var(--tw-border-opacity));
+  border-color: rgb(115 133 134 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-tahiti {
-  --tw-bg-opacity: 1;
-  background-color: rgb(58 183 191 / var(--tw-bg-opacity));
-}
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-.from-blue {
-  --tw-gradient-from: #3182ce;
-  --tw-gradient-to: rgb(49 130 206 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.to-tahiti {
-  --tw-gradient-to: #3ab7bf;
 }
 .p-7 {
   padding: 1.75rem;
@@ -636,6 +621,9 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
 }
@@ -680,23 +668,19 @@ video {
 }
 .text-blue {
   --tw-text-opacity: 1;
-  color: rgb(49 130 206 / var(--tw-text-opacity));
-}
-.text-dark-blue {
-  --tw-text-opacity: 1;
-  color: rgb(30 58 138 / var(--tw-text-opacity));
-}
-.text-metal {
-  --tw-text-opacity: 1;
-  color: rgb(86 85 132 / var(--tw-text-opacity));
-}
-.text-tahiti {
-  --tw-text-opacity: 1;
-  color: rgb(58 183 191 / var(--tw-text-opacity));
+  color: rgb(115 133 134 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-salmon {
+  --tw-text-opacity: 1;
+  color: rgb(170 113 92 / var(--tw-text-opacity));
+}
+.text-dark-grey {
+  --tw-text-opacity: 1;
+  color: rgb(76 79 74 / var(--tw-text-opacity));
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -720,7 +704,7 @@ video {
 }
 .hover\:bg-blue:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(49 130 206 / var(--tw-bg-opacity));
+  background-color: rgb(115 133 134 / var(--tw-bg-opacity));
 }
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
@@ -732,7 +716,7 @@ video {
 }
 .active\:bg-blue:active {
   --tw-bg-opacity: 1;
-  background-color: rgb(49 130 206 / var(--tw-bg-opacity));
+  background-color: rgb(115 133 134 / var(--tw-bg-opacity));
 }
 @media (min-width: 1024px) {
 
