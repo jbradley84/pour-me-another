@@ -2,9 +2,9 @@
    <div class="beverage_name">
       <a href="/beverages/{{id}}">{{beverage_name}}</a>
    </div>
-   <div class="beverage-details">
+   <div class="beverage-details font-bold text-md mb-2 text-blue">
       {{beverage_type}}, {{favorite_count}} {{format_plural "user" favorite_count}} favorited this {{beverage_type}}!
       |
-      <a href="/beverages/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+      <a class="font-bold text-md mb-2 text-blue" href="/beverages/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
    </div>
 </article>
