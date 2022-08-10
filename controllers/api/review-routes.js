@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+// Renders all users reviews to single-beverage view page
 router.get('/', (req, res) => {
   Review.findAll()
     .then(dbReviewData => res.json(dbReviewData))
@@ -22,25 +24,6 @@ router.post('/', withAuth, (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
-    });
-});
-
-router.delete('/:id', withAuth, (req, res) => {
-   Review.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbReviewData => {
-      if (!dbReviewData) {
-        res.status(404).json({ message: 'No review found with this id!' });
-        return;
-      }
-      res.json(dbReviewData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
     });
 });
 
