@@ -6,9 +6,10 @@
             <a href="/beverages/{{id}}">{{beverage_name}}</a>
          </div>
          <div class="beverage-details text-blue text-base">
-            {{beverage_type}}, {{favorite_count}} {{format_plural "user" favorite_count}} favorited this {{beverage_type}}!
-            |
-            <a href="/beverages/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+            {{favorite_count}} {{format_plural "user" favorite_count}} TAPP'd this {{beverage_type}}!
+         </div>
+         <div class="beverage-details text-blue text-base">
+            {{reviews.length}} user {{format_plural "review" reviews.length}}</a>
          </div>
       </div>
    </div>
