@@ -1,7 +1,7 @@
 <div class="columns-2">
    <div class=" p-5">
       <section class=" max-w-sm rounded overflow-hidden shadow-lg pl-10">
-         <h2 class="font-bold text-xl mb-2">Add a beverage to our Tap List</h2>
+         <h2 class="font-bold text-xl mb-2">Add a beverage to our TAPP LIST</h2>
          <form class="new-beverage-form">
             <div>
                <label for="beverage-name" class="font-bold text-l mb-2 text-dark-grey">Beverage Name</label>
@@ -24,10 +24,10 @@
 
    <div>
       <section class="max-w-sm rounded overflow-hidden shadow-lg pl-5 pt-12">
-         <h2 class="font-bold text-xl mb-2 text-dark-blue">{{username}}'s Bar</h2>
+         <h2 class="font-bold text-xl mb-2 text-dark-blue">Your TAPP LIST</h2>
          <ol class="font-bold text-l mb-2 text-blue">
             {{#each beverages as |beverage|}}
-            <li class="font-bold text-md mb-2 text-blue">
+            <li class="font-bold text-md text-blue">
                {{> beverage-info beverage}}
             </li>
             {{/each}}
