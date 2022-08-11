@@ -18,6 +18,9 @@ module.exports = {
       },
       fontFamily: {
         'sans': 'Helvetica, Arial, sans-serif',
+      },
+      backgroundImage: {
+        'drinks': "url('/public/stylesheets/header.png')"
       }
     }
     
