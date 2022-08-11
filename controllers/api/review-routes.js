@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// Creates a new review
 router.post('/', withAuth, (req, res) => {
   // expects => {review_text: "This is the review", user_id: 1, beverage_id: 1}
   Review.create({
