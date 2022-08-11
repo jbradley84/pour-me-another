@@ -541,9 +541,6 @@ video {
 .flex {
   display: flex;
 }
-.h-14 {
-  height: 3.5rem;
-}
 .w-full {
   width: 100%;
 }
@@ -594,9 +591,6 @@ video {
 .bg-tan {
   --tw-bg-opacity: 1;
   background-color: rgb(150 139 125 / var(--tw-bg-opacity));
-}
-.bg-drinks {
-  background-image: url('/public/stylesheets/header.png');
 }
 .p-7 {
   padding: 1.75rem;
@@ -657,9 +651,6 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
-.text-left {
-  text-align: left;
-}
 .text-center {
   text-align: center;
 }
@@ -688,6 +679,10 @@ video {
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .font-semibold {
   font-weight: 600;
