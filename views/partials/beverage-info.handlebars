@@ -1,8 +1,8 @@
-<article class="beverage">
-   <div class="beverage_name">
-      <a href="/beverages/{{id}}">{{beverage_name}}</a>
+<article class="beverage max-w-sm rounded overflow-hidden shadow-lg">
+   <div class="beverage_name px-6 py-4">
+      <a class="font-bold text-xl text-dark-grey mb-2" href="/beverages/{{id}}">{{beverage_name}}</a>
    </div>
-   <div class="beverage-details">
+   <div class="beverage-details text-l text-blue">
       {{beverage_type}}, {{favorite_count}} {{format_plural "user" favorite_count}} favorited this {{beverage_type}}!
       |
       <a href="/beverages/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
