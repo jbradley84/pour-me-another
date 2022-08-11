@@ -6,18 +6,15 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="/stylesheets/style.css" rel="stylesheet">
+   <link href="/stylesheets/header.css" rel="stylesheet">
    <title>TAPP THAT.</title>
 </head>
 
 <body>
 
-   <header class="h-14 py-15 text-left bg-drinks"
-   style="background-image: url('http://cdn2.hubspot.net/hubfs/659515/craft_beer_taps.jpg')">
-   </header>
-      <a class="text-dark-grey text-6xl pt-8 pb-8 font-sans" href="/">TAPP THAT.</a>
-   </header>
-
-   <div class="pt-3">
+   <header>
+      <a class="text-dark-grey text-6xl pt-8 pb-8 font-sans header-image" href="/">TAPP THAT.</a>
+       <div class="pt-3">
       <nav class="text-right pb-6">
          {{#if loggedIn}}
          <a class="text-dark-grey border border-light-grey hover:bg-dark-grey hover:text-light-grey bg-tan font-bold uppercase px-4 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -37,12 +34,15 @@
          {{/if}}
       </nav>
    </div>
+   </header>
+
+  
 
    <main>
       {{{ body }}}
    </main>
 
-   <footer class="text-sans text-center pl-5 fixed bottom-5 text-salmon">
+   <footer class="text-sans text-center pl-5 bottom-5 text-salmon">
       Drink responsibly. Post liberally.
    </footer>
 
