@@ -1,10 +1,15 @@
-<article class="beverage max-w-sm rounded overflow-hidden shadow-lg">
-   <div class="beverage_name px-6 py-4">
-      <a class="font-bold text-xl text-dark-grey mb-2" href="/beverages/{{id}}">{{beverage_name}}</a>
-   </div>
-   <div class="beverage-details text-l text-blue">
-      {{beverage_type}}, {{favorite_count}} {{format_plural "user" favorite_count}} favorited this {{beverage_type}}!
-      |
-      <a href="/beverages/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+<article class="p-10">
+   <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="px-6 py-4">
+         <div class="font-bold text-xl text-dark-grey mb-2">
+            <a href="/beverages/{{id}}">{{beverage_name}}</a>
+         </div>
+         <div class=class="text-blue text-base">
+            {{favorite_count}} {{format_plural "user" favorite_count}} TAPP'd this {{beverage_type}}!
+         </div>
+         <div class="beverage-details text-blue text-base">
+            {{reviews.length}} user {{format_plural "review" reviews.length}}</a>
+         </div>
+      </div>
    </div>
 </article>
