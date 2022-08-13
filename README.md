@@ -14,21 +14,21 @@ Access the site [here](https://pour-me-another.herokuapp.com/).
 [Tong Lor](https://github.com/tlor0026)
 
 ## Built With
-JavaScript
-CSS
-HTML
-[Handlebars](https://www.npmjs.com/package/handlebars)
-[Tailwind](https://tailwindcss.com/docs/installation)
-[express](https://www.npmjs.com/package/express)
-[MySQL2](https://www.npmjs.com/package/mysql2)
-[Sequelize](https://www.npmjs.com/package/sequelize)
-[express-session](https://www.npmjs.com/package/express-session)
-[connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
-[Express Handlebars](https://www.npmjs.com/package/express-handlebars)
-[PostCSS](https://www.npmjs.com/package/postcss)
-[autoprefixer](https://www.npmjs.com/package/autoprefixer)
-[bcrypt](https://www.npmjs.com/package/bcrypt)
-[dotenv](https://www.npmjs.com/package/dotenv)
+- JavaScript
+- CSS
+- HTML
+- [Handlebars](https://www.npmjs.com/package/handlebars)
+- [Tailwind](https://tailwindcss.com/docs/installation)
+- [express](https://www.npmjs.com/package/express)
+- [MySQL2](https://www.npmjs.com/package/mysql2)
+- [Sequelize](https://www.npmjs.com/package/sequelize)
+- [express-session](https://www.npmjs.com/package/express-session)
+- [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
+- [PostCSS](https://www.npmjs.com/package/postcss)
+- [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## License
 &copy; 2022 by The AP-Aye-Aye-Ayes
