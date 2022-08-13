@@ -10,7 +10,7 @@ Access the site [here](https://pour-me-another.herokuapp.com/).
 ![Screenshot](./assets/images/tappthat_screenshot.png)
 
 ## Contributors
-[Abby Rosenthal](https://github.com/AbbyRosenthal)
+[Abby Rosenthal](https://github.com/AbbyRosenthal), 
 [Tong Lor](https://github.com/tlor0026)
 
 ## Built With
